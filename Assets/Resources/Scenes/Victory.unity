@@ -572,6 +572,7 @@ GameObject:
   m_Component:
   - component: {fileID: 587898451}
   - component: {fileID: 587898452}
+  - component: {fileID: 587898453}
   m_Layer: 0
   m_Name: VictoryTextManager
   m_TagString: Untagged
@@ -608,6 +609,17 @@ MonoBehaviour:
   bottomPlayer: {fileID: 1515668517}
   upperPlayer: {fileID: 555580422}
   fadeTime: 3
+--- !u!114 &587898453
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 587898450}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9645a4db68ff5b94db6dbed0c0b01aab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1088465882
 GameObject:
   m_ObjectHideFlags: 0
@@ -619,6 +631,7 @@ GameObject:
   - component: {fileID: 1088465885}
   - component: {fileID: 1088465884}
   - component: {fileID: 1088465883}
+  - component: {fileID: 1088465887}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -706,6 +719,36 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1088465887
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1088465882}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 2
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 587898453}
+          m_MethodName: ChangeScene
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: Title
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  delegates: []
 --- !u!1 &1120672714
 GameObject:
   m_ObjectHideFlags: 0
