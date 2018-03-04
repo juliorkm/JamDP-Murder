@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GridSpawner : MonoBehaviour {
 
@@ -52,12 +53,14 @@ public class GridSpawner : MonoBehaviour {
         pUp.transform.localPosition = Vector3.zero;
         pUp.transform.localScale = Vector3.one;
         pUp.transform.localRotation = Quaternion.Euler(0,0,180); //flipar o player de cima
+        pUp.GetComponent<Image>().color = ColorManager.colors[(int)ColorManager.upperPlayerColor];
         GameObject pDown = Instantiate(player_prefab);
         pDown.name = "Player (Down)";
-        pDown.tag = "pDown";        
+        pDown.tag = "pDown";
         pDown.transform.SetParent(transform.parent, true);
         pDown.transform.localPosition = Vector3.zero;
         pDown.transform.localScale = Vector3.one;
+        pDown.GetComponent<Image>().color = ColorManager.colors[(int)ColorManager.bottomPlayerColor];
 
         Player pUpPlayer = pUp.GetComponent<Player>();
         pUpPlayer.generatePlayer(player_up_tile, player_up_pos);
