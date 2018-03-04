@@ -3,14 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class VictoryText : MonoBehaviour {
 
     public TextMeshProUGUI bottomText, upperText;
+    public Image bottomPlayer, upperPlayer;
 	public float fadeTime;
 
     void Start () {
-		setWinner();
+        bottomPlayer.color = ColorManager.colors[(int)ColorManager.bottomPlayerColor];
+        upperPlayer.color = ColorManager.colors[(int)ColorManager.upperPlayerColor];
+        setWinner();
 	}
 
 	void setWinner() {
