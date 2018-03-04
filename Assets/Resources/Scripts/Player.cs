@@ -44,6 +44,7 @@ public class Player : MonoBehaviour {
         canAct = false;
         while (Vector2.Distance(rectTransform.anchoredPosition, target) > 15) {
             rectTransform.anchoredPosition = Vector2.Lerp(rectTransform.anchoredPosition, target, .3f);
+            AudioManager.instance.Play(AudioManager.instance.sfx_move);
             yield return new WaitForEndOfFrame();
         }
         rectTransform.anchoredPosition = target;

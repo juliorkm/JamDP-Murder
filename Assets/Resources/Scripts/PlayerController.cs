@@ -29,6 +29,7 @@ public class PlayerController : MonoBehaviour {
             }
             go.transform.SetParent(transform.parent, false);
             go.GetComponent<Projectile>().SerializeProjectile(dir, player.rectTransform.anchoredPosition);
+            AudioManager.instance.Play(AudioManager.instance.sfx_shot);
             StartCoroutine(Cooldown(.8f));
         }
     }
