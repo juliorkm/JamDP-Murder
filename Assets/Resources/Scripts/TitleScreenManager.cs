@@ -10,7 +10,11 @@ public class TitleScreenManager : MonoBehaviour {
 	void Start () {
 		resetPlayerPrefs();
 		
-		introAnimator.gameObject.SetActive(firstEnter);
+		if (!firstEnter) {
+			introAnimator.GetComponentInChildren<GenericAnimationFunctions>().PlayIntro();
+			introAnimator.gameObject.SetActive(false);
+		}
+
 		firstEnter = false;
 	}
 

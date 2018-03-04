@@ -75,4 +75,9 @@ public class GenericAnimationFunctions : MonoBehaviour {
 			}
 		}
 	}
+
+	public void PlayIntro() {
+		AudioManager audioManager = GameObject.FindGameObjectWithTag("AudioManager").GetComponentInChildren<AudioManager>();
+		audioManager.PlayAndLoop(audioManager.intro_sound);
+	}
 }

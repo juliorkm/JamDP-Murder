@@ -492,6 +492,37 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_GenerateMotionCurves: 0
   m_Events:
+  - time: 2.1166666
+    functionName: Play
+    data: 
+    objectReferenceParameter: {fileID: 8300000, guid: 01df8c67953ee5c4f9d1f5ca8fdb4ad1,
+      type: 3}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 2.2166667
+    functionName: ChangeVolume
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0.5
+    intParameter: 0
+    messageOptions: 0
+  - time: 2.2833333
+    functionName: Play
+    data: 
+    objectReferenceParameter: {fileID: 8300000, guid: 01df8c67953ee5c4f9d1f5ca8fdb4ad1,
+      type: 3}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 2.3333333
+    functionName: PlayIntro
+    data: 
+    objectReferenceParameter: {fileID: 8300000, guid: ea8c6b613372c0346b66c30150089f10,
+      type: 3}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
   - time: 2.3666666
     functionName: DeactivateMyself
     data: 
