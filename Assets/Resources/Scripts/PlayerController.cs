@@ -14,6 +14,8 @@ public class PlayerController : MonoBehaviour {
     private RectTransform shootButtonIcon;
     private ButtonIconMovement shootButtonIconMovement;
 
+    private Image cooldownClock;
+
     void Start() {
         shootButtonIconMovement = shootButton.GetComponentInChildren<ButtonIconMovement>();
         shootButtonIcon = shootButtonIconMovement.gameObject.GetComponent<RectTransform>();
@@ -58,13 +60,20 @@ public class PlayerController : MonoBehaviour {
     }
 
     IEnumerator Cooldown(float time) {
-        yield return new WaitForSeconds(time);
+        for (int i = 0; i < 50; i++) {
+            player.cooldownClock.fillAmount = 1 - i / 50f;
+            yield return new WaitForSeconds(time / 50);
+        }
+        player.cooldownClock.fillAmount = 0f;
         player.canAct = true;
     }
 
     IEnumerator ReloadTime(float time) {
-        yield return new WaitForSeconds(time);
-        //bullet = true;
+        for (int i = 0; i < 50; i++) {
+            player.cooldownClock.fillAmount = 1 - i / 50f;
+            yield return new WaitForSeconds(time / 50);
+        }
+        player.cooldownClock.fillAmount = 0f;
         player.canAct = true;
         shootButton.interactable = true;
         shootButtonIcon.localPosition = shootButtonIconMovement.nonPressedPosition;
