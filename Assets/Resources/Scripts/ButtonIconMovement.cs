@@ -7,7 +7,8 @@ public class ButtonIconMovement : MonoBehaviour {
 
     private Button fatherButton;
     private RectTransform rt;
-    private Vector3 nonPressedPosition;
+    [HideInInspector]
+    public Vector3 nonPressedPosition;
     private bool isHoldingDown = false;
 
 	void Start () {
