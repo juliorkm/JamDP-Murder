@@ -54,6 +54,10 @@ public class GridSpawner : MonoBehaviour {
         pUp.transform.localScale = Vector3.one;
         pUp.transform.localRotation = Quaternion.Euler(0,0,180); //flipar o player de cima
         pUp.GetComponent<Image>().color = ColorManager.colors[(int)ColorManager.upperPlayerColor];
+        pUp.transform.GetChild(0).GetComponent<Image>().color = new Color(ColorManager.colors[(int)ColorManager.upperPlayerColor].r + .15f,
+                                                            ColorManager.colors[(int)ColorManager.upperPlayerColor].g + .15f,
+                                                            ColorManager.colors[(int)ColorManager.upperPlayerColor].b + .15f,
+                                                            .5f);
         GameObject pDown = Instantiate(player_prefab);
         pDown.name = "Player (Down)";
         pDown.tag = "pDown";
@@ -61,6 +65,10 @@ public class GridSpawner : MonoBehaviour {
         pDown.transform.localPosition = Vector3.zero;
         pDown.transform.localScale = Vector3.one;
         pDown.GetComponent<Image>().color = ColorManager.colors[(int)ColorManager.bottomPlayerColor];
+        pDown.transform.GetChild(0).GetComponent<Image>().color = new Color(ColorManager.colors[(int)ColorManager.bottomPlayerColor].r + .15f,
+                                                            ColorManager.colors[(int)ColorManager.bottomPlayerColor].g + .15f,
+                                                            ColorManager.colors[(int)ColorManager.bottomPlayerColor].b + .15f,
+                                                            .5f);
 
         Player pUpPlayer = pUp.GetComponent<Player>();
         pUpPlayer.generatePlayer(player_up_tile, player_up_pos);

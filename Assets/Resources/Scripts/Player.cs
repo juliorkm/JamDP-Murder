@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public enum PlayerDir{
 	LEFT, RIGHT
@@ -18,13 +19,14 @@ public class Player : MonoBehaviour {
     [HideInInspector]
     public GridSpawner grid;
 
-	void Update() {
-	}
+    [HideInInspector]
+    public Image cooldownClock;
 
     public void generatePlayer(int tile_id, Vector2 tile_pos) {
         rectTransform = GetComponent<RectTransform>();
         this.tile_id = tile_id;
 		rectTransform.anchoredPosition = tile_pos;
+        cooldownClock = transform.GetChild(0).GetComponent<Image>();
     }
 
 	public void movePlayer (PlayerDir dir) {
