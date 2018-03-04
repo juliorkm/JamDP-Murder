@@ -5,18 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class SceneLoader : MonoBehaviour {
 
-    public void ChangeScene(string s)
-    {
+    public void ChangeScene(string s) {
+        PlayerPrefs.DeleteAll();
         SceneManager.LoadScene(s);
-    }
-
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
 	}
 }

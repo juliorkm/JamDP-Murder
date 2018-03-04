@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public enum PlayerDir{
 	LEFT, RIGHT
@@ -56,16 +57,25 @@ public class Player : MonoBehaviour {
         if (coll.gameObject.tag == "Projectile") { 
             if(coll.GetComponent<Projectile>().direction == true 
                 && this.tag == "pUp") {
-                    Death();
+                if (!PlayerPrefs.HasKey("playerDown"))
+                    PlayerPrefs.SetInt("playerDown", 1);
+                else
+                    PlayerPrefs.SetInt("playerDown", PlayerPrefs.GetInt("playerDown") + 1);
+                Death();
             } else if (coll.GetComponent<Projectile>().direction == false 
                 && this.tag == "pDown") {
-                    Death();
+                if (!PlayerPrefs.HasKey("playerUp"))
+                    PlayerPrefs.SetInt("playerUp", 1);
+                else
+                    PlayerPrefs.SetInt("playerUp", PlayerPrefs.GetInt("playerUp") + 1);
+                Death();
             }
         }
     }
 
     void Death() {
         AudioManager.instance.Play(AudioManager.instance.sfx_death);
+        SceneManager.LoadScene("GameOver");
         Destroy(this.gameObject);                 
     }
 }
