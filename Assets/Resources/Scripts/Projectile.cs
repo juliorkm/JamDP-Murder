@@ -6,7 +6,7 @@ public class Projectile : MonoBehaviour {
 
     private RectTransform rectTransform;
     public float speed;
-    private bool direction; //(true = up)
+    public bool direction; //(true = up)
 
     public void SerializeProjectile (bool direction, Vector2 playerPos) {
         rectTransform = GetComponent<RectTransform>();

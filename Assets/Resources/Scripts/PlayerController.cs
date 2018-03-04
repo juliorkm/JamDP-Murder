@@ -19,6 +19,8 @@ public class PlayerController : MonoBehaviour {
         shootButtonIcon = shootButtonIconMovement.gameObject.GetComponent<RectTransform>();
     }
 
+    private int bullets = 0;
+
     public void MovePlayerLeft() {
         if (player.canAct)
             player.movePlayer(PlayerDir.LEFT);

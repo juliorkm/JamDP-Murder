@@ -47,12 +47,14 @@ public class GridSpawner : MonoBehaviour {
 
         GameObject pUp = Instantiate(player_prefab);
         pUp.name = "Player (Up)";
+        pUp.tag = "pUp";
         pUp.transform.SetParent(transform.parent, true);
         pUp.transform.localPosition = Vector3.zero;
         pUp.transform.localScale = Vector3.one;
         pUp.transform.localRotation = Quaternion.Euler(0,0,180); //flipar o player de cima
         GameObject pDown = Instantiate(player_prefab);
         pDown.name = "Player (Down)";
+        pDown.tag = "pDown";        
         pDown.transform.SetParent(transform.parent, true);
         pDown.transform.localPosition = Vector3.zero;
         pDown.transform.localScale = Vector3.one;

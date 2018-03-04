@@ -52,4 +52,20 @@ public class Player : MonoBehaviour {
         canAct = true;
     }
 
+    void OnTriggerEnter2D(Collider2D coll) {
+        if (coll.gameObject.tag == "Projectile") { 
+            if(coll.GetComponent<Projectile>().direction == true 
+                && this.tag == "pUp") {
+                    Death();
+            } else if (coll.GetComponent<Projectile>().direction == false 
+                && this.tag == "pDown") {
+                    Death();
+            }
+        }
+    }
+
+    void Death() {
+        AudioManager.instance.Play(AudioManager.instance.sfx_death);
+        Destroy(this.gameObject);                 
+    }
 }
