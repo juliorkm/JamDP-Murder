@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class TitleScreenManager : MonoBehaviour {
 
-	public static bool entered;
+	public static bool firstEnter = true;
 	public Animator introAnimator;
 
 	void Start () {
 		resetPlayerPrefs();
 		
-		introAnimator.gameObject.SetActive(entered);
-		entered = true;
+		introAnimator.gameObject.SetActive(firstEnter);
+		firstEnter = false;
 	}
 
 	void resetPlayerPrefs() {
