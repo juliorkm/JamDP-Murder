@@ -8,18 +8,23 @@ public enum PlayerDir{
 
 public class Player : MonoBehaviour {
 
+    [HideInInspector]
+    public bool canAct = true;
+
     private int tile_id;
     private RectTransform rectTransform;
+    [HideInInspector]
+    public GridSpawner grid;
 
 	void Update() {
-
-		//inputMovePlayer();
+        if (canAct)
+    		inputMovePlayer();
 	}
 
     public void generatePlayer(int tile_id, Vector2 tile_pos) {
         rectTransform = GetComponent<RectTransform>();
         this.tile_id = tile_id;
-		rectTransform.localPosition = tile_pos;
+		rectTransform.anchoredPosition = tile_pos;
     }
 
 	void inputMovePlayer() {
@@ -31,10 +36,27 @@ public class Player : MonoBehaviour {
 
 	public void movePlayer (PlayerDir dir) {
 		if (dir == PlayerDir.LEFT) {
-			tile_id--;
+            if (tile_id % grid.width > 0) {
+                StartCoroutine(PlayerMovement(grid.tiles[tile_id-1].anchoredPosition));
+			    tile_id--;
+            }
 		} else if (dir == PlayerDir.RIGHT) {
-			tile_id++;
+            if (tile_id % grid.width < grid.width - 1) {
+                StartCoroutine(PlayerMovement(grid.tiles[tile_id+1].anchoredPosition));
+			    tile_id++;
+            }
 		}
 	}
+
+    IEnumerator PlayerMovement(Vector2 target) {
+        canAct = false;
+        while (Vector2.Distance(rectTransform.anchoredPosition, target) > 15) {
+            rectTransform.anchoredPosition = Vector2.Lerp(rectTransform.anchoredPosition, target, .3f);
+            yield return new WaitForEndOfFrame();
+        }
+        rectTransform.anchoredPosition = target;
+        yield return new WaitForSeconds(.05f); //cooldown
+        canAct = true;
+    }
 
 }
