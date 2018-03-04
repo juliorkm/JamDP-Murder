@@ -50,6 +50,7 @@ public class PlayerController : MonoBehaviour {
     public void ReloadAmmo() {
         if (player.canAct) {
             player.canAct = false;
+            AudioManager.instance.Play(AudioManager.instance.sfx_reload);
             StartCoroutine(ReloadTime(reloadTime));
         }
     }
