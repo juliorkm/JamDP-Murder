@@ -12,13 +12,12 @@ public class Player : MonoBehaviour {
     public bool canAct = true;
 
     private int tile_id;
-    private RectTransform rectTransform;
+    [HideInInspector]
+    public RectTransform rectTransform;
     [HideInInspector]
     public GridSpawner grid;
 
 	void Update() {
-        if (canAct)
-    		inputMovePlayer();
 	}
 
     public void generatePlayer(int tile_id, Vector2 tile_pos) {
@@ -26,13 +25,6 @@ public class Player : MonoBehaviour {
         this.tile_id = tile_id;
 		rectTransform.anchoredPosition = tile_pos;
     }
-
-	void inputMovePlayer() {
-		if (Input.GetKeyDown(KeyCode.D))
-            movePlayer(PlayerDir.RIGHT);
-		else if (Input.GetKeyDown(KeyCode.A))
-			movePlayer(PlayerDir.LEFT);
-	}
 
 	public void movePlayer (PlayerDir dir) {
 		if (dir == PlayerDir.LEFT) {
