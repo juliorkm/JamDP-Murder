@@ -14,25 +14,32 @@ public class ButtonIconMovement : MonoBehaviour {
         fatherButton = GetComponentInParent<Button>();
         rt = GetComponent<RectTransform>();
         nonPressedPosition = new Vector3(0, 15, 0);
-        rt.localPosition = nonPressedPosition;
     }
 
     public void MoveIconDown() {
-        rt.localPosition = Vector3.zero;
-        isHoldingDown = true;
+        if (fatherButton.interactable) {
+            rt.localPosition = Vector3.zero;
+            isHoldingDown = true;
+        }
     }
 
     public void MoveIconDownEnter() {
-        if (isHoldingDown)
-            rt.localPosition = Vector3.zero;
+        if (fatherButton.interactable) {
+            if (isHoldingDown)
+                rt.localPosition = Vector3.zero;
+        }
     }
 
     public void MoveIconUp() {
-        rt.localPosition = nonPressedPosition;
-        isHoldingDown = false;
+        if (fatherButton.interactable) {
+            rt.localPosition = nonPressedPosition;
+            isHoldingDown = false;
+        }
     }
 
     public void MoveIconUpExit() {
-        rt.localPosition = nonPressedPosition;
+        if (fatherButton.interactable) {
+            rt.localPosition = nonPressedPosition;
+        }
     }
 }
