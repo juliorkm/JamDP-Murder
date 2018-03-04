@@ -4,16 +4,20 @@ using UnityEngine;
 
 public class GridSpawner : MonoBehaviour {
 
+    private RectTransform rectTransform;
+
 	public int width;
 	public int height;
+    public int cellSize;
 	public GameObject tile_prefab;
 	public GameObject player_prefab;
 
 	private GameObject[] tiles;
 
 	void Start () {
+        rectTransform = GetComponent<RectTransform>();
 		generateGrid();
-		StartCoroutine(spawnPlayers());
+		spawnPlayers();
 	}
 	
 	void generateGrid() {
@@ -21,29 +25,39 @@ public class GridSpawner : MonoBehaviour {
 		for (int i = 0; i < width*height; i++) {
 
 			GameObject go = Instantiate(tile_prefab);
-        	go.transform.SetParent(this.gameObject.transform, false);
-			go.GetComponent<GridTile>().generateTile(i);
+            go.transform.SetParent(gameObject.transform, true);
+            float x = - rectTransform.rect.width / 2 + cellSize * (.5f + i % width);
+            float y = rectTransform.rect.height / 2 - cellSize * (.5f + i / width);
+            go.transform.localPosition = new Vector2(x, y);
+            go.transform.localScale = Vector3.one;
+            go.GetComponent<GridTile>().generateTile(i);
 			tiles[i] = go;
 		}
-	}
+    }
 
-	IEnumerator spawnPlayers() {
+	void spawnPlayers() {
 		int player_up_tile = Random.Range(0, width); 
 		int player_down_tile = Random.Range(width*height - width, width*height);
 
-		Vector2 player_up_pos = tiles[player_up_tile].transform.position;
-		Vector2 player_down_pos = tiles[player_down_tile].transform.position;
+        Vector2 player_up_pos = tiles[player_up_tile].GetComponent<RectTransform>().localPosition;
+		Vector2 player_down_pos = tiles[player_down_tile].GetComponent<RectTransform>().localPosition;
 
-		GameObject p1 = Instantiate(player_prefab);
-		p1.transform.SetParent(this.gameObject.transform.parent, false);
-		GameObject p2 = Instantiate(player_prefab);
-		p2.transform.SetParent(this.gameObject.transform.parent, false);
+        GameObject pUp = Instantiate(player_prefab);
+        pUp.name = "Player (Up)";
+        pUp.transform.SetParent(transform.parent, true);
+        pUp.transform.localPosition = Vector3.zero;
+        pUp.transform.localScale = Vector3.one;
+        pUp.transform.localRotation = Quaternion.Euler(0,0,180); //flipar o player de cima
+        GameObject pDown = Instantiate(player_prefab);
+        pDown.name = "Player (Down)";
+        pDown.transform.SetParent(transform.parent, true);
+        pDown.transform.localPosition = Vector3.zero;
+        pDown.transform.localScale = Vector3.one;
 
-		yield return new WaitForSeconds(0.4f);
+        //pUp.GetComponent<RectTransform>().localPosition = tiles[player_up_tile].GetComponent<RectTransform>().localPosition;
+        //pDown.GetComponent<RectTransform>().localPosition = tiles[player_down_tile].GetComponent<RectTransform>().localPosition;
 
-		// p1.transform.position = tiles[player_up_tile].transform.position;
-
-		p1.GetComponent<Player>().generatePlayer(player_up_tile, player_up_pos);
-		// p2.GetComponent<Player>().generatePlayer(player_down_tile, player_down_pos);
+        pUp.GetComponent<Player>().generatePlayer(player_up_tile, player_up_pos);
+        pDown.GetComponent<Player>().generatePlayer(player_down_tile, player_down_pos);
 	}
 }

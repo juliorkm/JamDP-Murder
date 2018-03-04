@@ -9,17 +9,17 @@ public enum PlayerDir{
 public class Player : MonoBehaviour {
 
     private int tile_id;
+    private RectTransform rectTransform;
 
 	void Update() {
 
-		inputMovePlayer();
+		//inputMovePlayer();
 	}
 
     public void generatePlayer(int tile_id, Vector2 tile_pos) {
+        rectTransform = GetComponent<RectTransform>();
         this.tile_id = tile_id;
-		this.transform.position = tile_pos;
-		gameObject.name = "Player " + 1;
-		
+		rectTransform.localPosition = tile_pos;
     }
 
 	void inputMovePlayer() {
