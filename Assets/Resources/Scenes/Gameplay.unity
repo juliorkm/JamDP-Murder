@@ -3390,7 +3390,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   source: {fileID: 1835886369}
   sfx_shot: {fileID: 8300000, guid: be17da43e93fa404096b4bbf193ff727, type: 3}
-  sfx_move: {fileID: 8300000, guid: d244ad5f3c1e9484283deacf29013043, type: 3}
+  sfx_move: {fileID: 8300000, guid: 6487f183f94142c41bc009b695955fcc, type: 3}
   sfx_death: {fileID: 8300000, guid: 5f5cc97472e66e54db78cda80970a22a, type: 3}
   sfx_reload: {fileID: 8300000, guid: 92bde33605b6d684987d10ac811ac21e, type: 3}
   sfx_noammo: {fileID: 8300000, guid: 7236453e03bdea54b892a39b33aa504c, type: 3}
