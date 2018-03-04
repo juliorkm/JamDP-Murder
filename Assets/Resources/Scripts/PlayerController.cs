@@ -19,6 +19,8 @@ public class PlayerController : MonoBehaviour {
         shootButtonIcon = shootButtonIconMovement.gameObject.GetComponent<RectTransform>();
     }
 
+    private int bullets = 0;
+
     public void MovePlayerLeft() {
         if (player.canAct)
             player.movePlayer(PlayerDir.LEFT);
@@ -42,6 +44,7 @@ public class PlayerController : MonoBehaviour {
             }
             go.transform.SetParent(transform.parent, false);
             go.GetComponent<Projectile>().SerializeProjectile(dir, player.rectTransform.anchoredPosition);
+            AudioManager.instance.Play(AudioManager.instance.sfx_shot);
             StartCoroutine(Cooldown(.8f));
         }
     }
@@ -49,6 +52,7 @@ public class PlayerController : MonoBehaviour {
     public void ReloadAmmo() {
         if (player.canAct) {
             player.canAct = false;
+            AudioManager.instance.Play(AudioManager.instance.sfx_reload);
             StartCoroutine(ReloadTime(reloadTime));
         }
     }
