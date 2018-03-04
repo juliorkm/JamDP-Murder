@@ -22,6 +22,8 @@ public class GridSpawner : MonoBehaviour {
 		generateGrid();
 		spawnPlayers();
 	}
+
+    
 	
 	void generateGrid() {
 		tiles = new RectTransform[width*height];
