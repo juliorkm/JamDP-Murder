@@ -5,21 +5,24 @@ using TMPro;
 using UnityEngine.SceneManagement;
 
 public class ScoreScene : MonoBehaviour {
-    
+
     public TextMeshProUGUI bottomScore, upperScore;
     public Vector2 bottomStop, upperStop;
     public Vector2 bottomEnd, upperEnd;
+    public int scoreLimit;
 
     private int playerDownScore, playerUpScore;
-    
+
     void Start () {
         playerDownScore = PlayerPrefs.GetInt("playerDown");
         playerUpScore = PlayerPrefs.GetInt("playerUp");
         bottomScore.text = playerDownScore + " x " + playerUpScore;
         upperScore.text = playerUpScore + " x " + playerDownScore;
+
+
         StartCoroutine(ScoreAnimation());
 	}
-	
+
     IEnumerator ScoreAnimation() {
         var bottomRect = bottomScore.GetComponent<RectTransform>();
         var upperRect = upperScore.GetComponent<RectTransform>();
@@ -41,6 +44,23 @@ public class ScoreScene : MonoBehaviour {
 
             yield return new WaitForEndOfFrame();
         }
-        SceneManager.LoadScene("Gameplay");
+
+        if (playerUpScore >= scoreLimit) {
+            loadVictoryScene("Up");
+        } else if (playerDownScore >= scoreLimit) {
+            loadVictoryScene("Down");
+        } else {
+            SceneManager.LoadScene("Gameplay");
+        }
+
     }
+
+    void loadVictoryScene(string winner) {
+
+        PlayerPrefs.SetString("Winner", winner);
+        SceneManager.LoadScene("Victory");
+
+    }
+
+
 }
