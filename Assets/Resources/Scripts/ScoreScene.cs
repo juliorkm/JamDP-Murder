@@ -10,13 +10,13 @@ public class ScoreScene : MonoBehaviour {
     public Vector2 bottomStop, upperStop;
     public Vector2 bottomEnd, upperEnd;
 
-    private int playerOneScore, playerTwoScore;
+    private int playerDownScore, playerUpScore;
     
     void Start () {
-        playerOneScore = PlayerPrefs.GetInt("player1");
-        playerTwoScore = PlayerPrefs.GetInt("player2");
-        bottomScore.text = playerOneScore + " x " + playerTwoScore;
-        upperScore.text = playerTwoScore + " x " + playerOneScore;
+        playerDownScore = PlayerPrefs.GetInt("playerDown");
+        playerUpScore = PlayerPrefs.GetInt("playerUp");
+        bottomScore.text = playerDownScore + " x " + playerUpScore;
+        upperScore.text = playerUpScore + " x " + playerDownScore;
         StartCoroutine(ScoreAnimation());
 	}
 	

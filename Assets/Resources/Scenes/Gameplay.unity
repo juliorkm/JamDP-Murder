@@ -1024,7 +1024,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 15}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &685291841
@@ -1144,7 +1144,7 @@ MonoBehaviour:
     m_HighlightedTrigger: Highlighted
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 696821539}
   m_OnClick:
     m_PersistentCalls:
@@ -1309,7 +1309,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 15}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &698680438
@@ -3047,7 +3047,7 @@ MonoBehaviour:
     m_HighlightedTrigger: Highlighted
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 1419136206}
   m_OnClick:
     m_PersistentCalls:
@@ -3723,6 +3723,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f33144933662d248b5a0aa753eb8aeb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nonPressedPosition: {x: 0, y: 0, z: 0}
 --- !u!1 &1835886366
 GameObject:
   m_ObjectHideFlags: 0
@@ -3757,7 +3758,6 @@ MonoBehaviour:
   sfx_death: {fileID: 8300000, guid: 5f5cc97472e66e54db78cda80970a22a, type: 3}
   sfx_reload: {fileID: 8300000, guid: 92bde33605b6d684987d10ac811ac21e, type: 3}
   sfx_noammo: {fileID: 8300000, guid: 7236453e03bdea54b892a39b33aa504c, type: 3}
-  nonPressedPosition: {x: 0, y: 0, z: 0}
 --- !u!4 &1835886368
 Transform:
   m_ObjectHideFlags: 0
