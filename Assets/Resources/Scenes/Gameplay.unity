@@ -193,6 +193,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f33144933662d248b5a0aa753eb8aeb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nonPressedPosition: {x: 0, y: 0, z: 0}
 --- !u!1 &264294598
 GameObject:
   m_ObjectHideFlags: 0
@@ -269,7 +270,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 264294601}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 595793356}
+        m_MethodName: ReloadAmmo
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &264294601
@@ -703,8 +715,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
+  reloadTime: 1
   projectile_prefab: {fileID: 1749124985503318, guid: 9ffc5f6efca7de04483c14f7be2f25c5,
     type: 2}
+  shootButton: {fileID: 1419136205}
 --- !u!1 &685291839
 GameObject:
   m_ObjectHideFlags: 0
@@ -738,7 +752,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 15}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &685291841
@@ -752,6 +766,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f33144933662d248b5a0aa753eb8aeb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nonPressedPosition: {x: 0, y: 0, z: 0}
 --- !u!114 &685291842
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -857,7 +872,7 @@ MonoBehaviour:
     m_HighlightedTrigger: Highlighted
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 696821539}
   m_OnClick:
     m_PersistentCalls:
@@ -1022,7 +1037,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 15}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &698680438
@@ -1036,6 +1051,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f33144933662d248b5a0aa753eb8aeb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nonPressedPosition: {x: 0, y: 0, z: 0}
 --- !u!114 &698680439
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1342,6 +1358,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f33144933662d248b5a0aa753eb8aeb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nonPressedPosition: {x: 0, y: 0, z: 0}
 --- !u!1001 &806704410
 Prefab:
   m_ObjectHideFlags: 0
@@ -1494,6 +1511,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f33144933662d248b5a0aa753eb8aeb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nonPressedPosition: {x: 0, y: 0, z: 0}
 --- !u!114 &821422157
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1782,8 +1800,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
+  reloadTime: 1
   projectile_prefab: {fileID: 1749124985503318, guid: 9ffc5f6efca7de04483c14f7be2f25c5,
     type: 2}
+  shootButton: {fileID: 696821538}
 --- !u!1 &1143680376
 GameObject:
   m_ObjectHideFlags: 0
@@ -1831,6 +1851,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f33144933662d248b5a0aa753eb8aeb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nonPressedPosition: {x: 0, y: 0, z: 0}
 --- !u!114 &1143680379
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2104,6 +2125,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f33144933662d248b5a0aa753eb8aeb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nonPressedPosition: {x: 0, y: 0, z: 0}
 --- !u!114 &1185104483
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2213,7 +2235,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1308538105}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1040969955}
+        m_MethodName: ReloadAmmo
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1308538105
@@ -2402,7 +2435,7 @@ MonoBehaviour:
     m_HighlightedTrigger: Highlighted
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 1419136206}
   m_OnClick:
     m_PersistentCalls:
@@ -2792,6 +2825,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f33144933662d248b5a0aa753eb8aeb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nonPressedPosition: {x: 0, y: 0, z: 0}
 --- !u!1 &1773344910
 GameObject:
   m_ObjectHideFlags: 0
@@ -2872,6 +2906,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f33144933662d248b5a0aa753eb8aeb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nonPressedPosition: {x: 0, y: 0, z: 0}
 --- !u!1 &1885749778
 GameObject:
   m_ObjectHideFlags: 0
@@ -3327,6 +3362,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f33144933662d248b5a0aa753eb8aeb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nonPressedPosition: {x: 0, y: 0, z: 0}
 --- !u!114 &1976169317
 MonoBehaviour:
   m_ObjectHideFlags: 0
