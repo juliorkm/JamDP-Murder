@@ -503,7 +503,7 @@ GameObject:
   - component: {fileID: 555580423}
   - component: {fileID: 555580422}
   m_Layer: 5
-  m_Name: PlayerUpIcon
+  m_Name: PlayerDownIcon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -606,8 +606,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bottomText: {fileID: 100281442}
   upperText: {fileID: 177931466}
-  bottomPlayer: {fileID: 1515668517}
-  upperPlayer: {fileID: 555580422}
+  bottomPlayer: {fileID: 555580422}
+  upperPlayer: {fileID: 1515668517}
   fadeTime: 3
 --- !u!114 &587898453
 MonoBehaviour:
@@ -842,7 +842,7 @@ GameObject:
   - component: {fileID: 1515668518}
   - component: {fileID: 1515668517}
   m_Layer: 5
-  m_Name: PlayerDownIcon
+  m_Name: PlayerUpIcon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
