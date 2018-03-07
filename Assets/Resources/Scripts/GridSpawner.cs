@@ -18,6 +18,8 @@ public class GridSpawner : MonoBehaviour {
 
     public PlayerController[] playerControllers;
 
+    public GameObject upperCpuLock, bottomCpuLock;
+
 	void Start () {
         rectTransform = GetComponent<RectTransform>();
 		generateGrid();
@@ -48,6 +50,7 @@ public class GridSpawner : MonoBehaviour {
         Vector2 player_up_pos = tiles[player_up_tile].GetComponent<RectTransform>().anchoredPosition;
 		Vector2 player_down_pos = tiles[player_down_tile].GetComponent<RectTransform>().anchoredPosition;
 
+        if (ColorManager.upperPlayerColor != PlayerColor.CPU) upperCpuLock.SetActive(false);
         GameObject pUp = Instantiate(player_prefab);
         pUp.name = "Player (Up)";
         pUp.tag = "pUp";
@@ -60,6 +63,7 @@ public class GridSpawner : MonoBehaviour {
                                                             ColorManager.colors[(int)ColorManager.upperPlayerColor].g + .15f,
                                                             ColorManager.colors[(int)ColorManager.upperPlayerColor].b + .15f,
                                                             .5f);
+        if (ColorManager.bottomPlayerColor != PlayerColor.CPU) bottomCpuLock.SetActive(false);
         GameObject pDown = Instantiate(player_prefab);
         pDown.name = "Player (Down)";
         pDown.tag = "pDown";

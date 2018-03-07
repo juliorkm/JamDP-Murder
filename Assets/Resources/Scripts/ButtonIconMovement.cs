@@ -11,7 +11,7 @@ public class ButtonIconMovement : MonoBehaviour {
     public Vector3 nonPressedPosition;
     private bool isHoldingDown = false;
 
-	void Start () {
+	void Awake () {
         fatherButton = GetComponentInParent<Button>();
         rt = GetComponent<RectTransform>();
         nonPressedPosition = new Vector3(0, 15, 0);

@@ -9,7 +9,8 @@ public enum PlayerColor
     RED,
     YELLOW,
     BLUE,
-    ORANGE
+    ORANGE,
+    CPU
 }
 
 public class ColorManager : MonoBehaviour {
@@ -19,18 +20,44 @@ public class ColorManager : MonoBehaviour {
         new Color(.875f, .118f, .118f),
         new Color(.833f, .875f, .118f),
         new Color(.206f, .118f, .875f),
-        new Color(.875f, .666f, .118f)
+        new Color(.875f, .666f, .118f),
+        new Color(.706f, .706f, .706f)
     };
+    public static bool colorHasBeenAssigned = false;
 
     public static PlayerColor bottomPlayerColor, upperPlayerColor;
     public Button[] bottomPlayerButtons, upperPlayerButtons;
 
-	// Use this for initialization
-	void Start () {
-        bottomPlayerColor = (PlayerColor) Random.Range(0, System.Enum.GetNames(typeof(PlayerColor)).Length);
-        upperPlayerColor = (PlayerColor) Random.Range(0, System.Enum.GetNames(typeof(PlayerColor)).Length);
-        SetBottomPlayerColor(Random.Range(0, System.Enum.GetNames(typeof(PlayerColor)).Length));
-        SetUpperPlayerColor(Random.Range(0, System.Enum.GetNames(typeof(PlayerColor)).Length));
+    private RectTransform bottomCpuIcon;
+    private ButtonIconMovement bottomCpuIconMovement;
+    private RectTransform upperCpuIcon;
+    private ButtonIconMovement upperCpuIconMovement;
+
+    // Use this for initialization
+    void Start () {
+        bottomCpuIconMovement = bottomPlayerButtons[bottomPlayerButtons.Length-1].GetComponentInChildren<ButtonIconMovement>();
+        bottomCpuIcon = bottomCpuIconMovement.gameObject.GetComponent<RectTransform>();
+        upperCpuIconMovement = upperPlayerButtons[upperPlayerButtons.Length-1].GetComponentInChildren<ButtonIconMovement>();
+        upperCpuIcon = upperCpuIconMovement.gameObject.GetComponent<RectTransform>();
+
+        //bottomPlayerColor = (PlayerColor) Random.Range(0, System.Enum.GetNames(typeof(PlayerColor)).Length-1);
+        //upperPlayerColor = (PlayerColor) Random.Range(0, System.Enum.GetNames(typeof(PlayerColor)).Length-1);
+
+        if (!colorHasBeenAssigned) {
+            colorHasBeenAssigned = true;
+            SetBottomPlayerColor(Random.Range(0, System.Enum.GetNames(typeof(PlayerColor)).Length - 1));
+            SetUpperPlayerColor(Random.Range(0, System.Enum.GetNames(typeof(PlayerColor)).Length - 1));
+        }
+        else {
+            SetBottomPlayerColor((int) bottomPlayerColor);
+            SetUpperPlayerColor((int) upperPlayerColor);
+        }
+
+        if (upperPlayerColor == PlayerColor.CPU) upperCpuIcon.localPosition = Vector2.zero;
+        else upperCpuIcon.localPosition = upperCpuIconMovement.nonPressedPosition;
+
+        if (bottomPlayerColor == PlayerColor.CPU) bottomCpuIcon.localPosition = Vector2.zero;
+        else bottomCpuIcon.localPosition = bottomCpuIconMovement.nonPressedPosition;
     }
 
     public void SetBottomPlayerColor(int i)
@@ -42,6 +69,10 @@ public class ColorManager : MonoBehaviour {
         bottomPlayerButtons[i].interactable = false;
         bottomPlayerColor = (PlayerColor)i;
 
+        if (i == (int) PlayerColor.CPU)
+            bottomCpuIcon.localPosition = Vector2.zero;
+        else
+            bottomCpuIcon.localPosition = bottomCpuIconMovement.nonPressedPosition;
     }
 
     public void SetUpperPlayerColor(int i)
@@ -53,6 +84,10 @@ public class ColorManager : MonoBehaviour {
         upperPlayerButtons[i].interactable = false;
         upperPlayerColor = (PlayerColor)i;
 
+        if (i == (int)PlayerColor.CPU)
+            upperCpuIcon.localPosition = Vector2.zero;
+        else
+            upperCpuIcon.localPosition = upperCpuIconMovement.nonPressedPosition;
     }
 
     // Update is called once per frame

@@ -21,8 +21,6 @@ public class PlayerController : MonoBehaviour {
         shootButtonIcon = shootButtonIconMovement.gameObject.GetComponent<RectTransform>();
     }
 
-    private int bullets = 0;
-
     public void MovePlayerLeft() {
         if (player.canAct)
             player.movePlayer(PlayerDir.LEFT);
@@ -61,7 +59,7 @@ public class PlayerController : MonoBehaviour {
 
     IEnumerator Cooldown(float time) {
         for (int i = 0; i < 50; i++) {
-            player.cooldownClock.fillAmount = 1 - i / 50f;
+            if (player != null) player.cooldownClock.fillAmount = 1 - i / 50f;
             yield return new WaitForSeconds(time / 50);
         }
         player.cooldownClock.fillAmount = 0f;
@@ -70,7 +68,7 @@ public class PlayerController : MonoBehaviour {
 
     IEnumerator ReloadTime(float time) {
         for (int i = 0; i < 50; i++) {
-            player.cooldownClock.fillAmount = 1 - i / 50f;
+            if (player != null) player.cooldownClock.fillAmount = 1 - i / 50f;
             yield return new WaitForSeconds(time / 50);
         }
         player.cooldownClock.fillAmount = 0f;
