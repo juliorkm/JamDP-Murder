@@ -882,6 +882,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   direction: 1
   playerController: {fileID: 595793356}
+  enemyController: {fileID: 1040969955}
   leftButton: {fileID: 1918184214}
   rightButton: {fileID: 875930861}
   loadButton: {fileID: 264294600}
@@ -3786,6 +3787,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   direction: 0
   playerController: {fileID: 1040969955}
+  enemyController: {fileID: 595793356}
   leftButton: {fileID: 1885749780}
   rightButton: {fileID: 374026027}
   loadButton: {fileID: 1308538104}

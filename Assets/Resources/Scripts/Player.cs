@@ -13,7 +13,8 @@ public class Player : MonoBehaviour {
     [HideInInspector]
     public bool canAct = true;
 
-    private int tile_id;
+    [HideInInspector]
+    public int tile_id;
     [HideInInspector]
     public RectTransform rectTransform;
     [HideInInspector]
