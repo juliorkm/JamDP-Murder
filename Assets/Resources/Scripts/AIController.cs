@@ -24,7 +24,7 @@ public class AIController : MonoBehaviour {
 	}
 
     IEnumerator AILoop() {
-        yield return new WaitForSeconds(Random.Range(1f, .5f));
+        yield return new WaitForSeconds(Random.Range(.05f, .15f));
         yield return Reload();
 
         while(true) {
