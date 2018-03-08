@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public enum PlayerColor
-{
+public enum PlayerColor {
     GREEN,
     RED,
     YELLOW,
@@ -32,17 +31,13 @@ public class ColorManager : MonoBehaviour {
     private ButtonIconMovement bottomCpuIconMovement;
     private RectTransform upperCpuIcon;
     private ButtonIconMovement upperCpuIconMovement;
-
-    // Use this for initialization
+    
     void Start () {
         bottomCpuIconMovement = bottomPlayerButtons[bottomPlayerButtons.Length-1].GetComponentInChildren<ButtonIconMovement>();
         bottomCpuIcon = bottomCpuIconMovement.gameObject.GetComponent<RectTransform>();
         upperCpuIconMovement = upperPlayerButtons[upperPlayerButtons.Length-1].GetComponentInChildren<ButtonIconMovement>();
         upperCpuIcon = upperCpuIconMovement.gameObject.GetComponent<RectTransform>();
-
-        //bottomPlayerColor = (PlayerColor) Random.Range(0, System.Enum.GetNames(typeof(PlayerColor)).Length-1);
-        //upperPlayerColor = (PlayerColor) Random.Range(0, System.Enum.GetNames(typeof(PlayerColor)).Length-1);
-
+        
         if (!colorHasBeenAssigned) {
             colorHasBeenAssigned = true;
             SetBottomPlayerColor(Random.Range(0, System.Enum.GetNames(typeof(PlayerColor)).Length - 1));
@@ -60,10 +55,8 @@ public class ColorManager : MonoBehaviour {
         else bottomCpuIcon.localPosition = bottomCpuIconMovement.nonPressedPosition;
     }
 
-    public void SetBottomPlayerColor(int i)
-    {
-        foreach (Button b in bottomPlayerButtons)
-        {
+    public void SetBottomPlayerColor(int i) {
+        foreach (Button b in bottomPlayerButtons) {
             b.interactable = true;
         }
         bottomPlayerButtons[i].interactable = false;
@@ -75,10 +68,8 @@ public class ColorManager : MonoBehaviour {
             bottomCpuIcon.localPosition = bottomCpuIconMovement.nonPressedPosition;
     }
 
-    public void SetUpperPlayerColor(int i)
-    {
-        foreach (Button b in upperPlayerButtons)
-        {
+    public void SetUpperPlayerColor(int i) {
+        foreach (Button b in upperPlayerButtons) {
             b.interactable = true;
         }
         upperPlayerButtons[i].interactable = false;
@@ -89,9 +80,4 @@ public class ColorManager : MonoBehaviour {
         else
             upperCpuIcon.localPosition = upperCpuIconMovement.nonPressedPosition;
     }
-
-    // Update is called once per frame
-    void Update () {
-		
-	}
 }

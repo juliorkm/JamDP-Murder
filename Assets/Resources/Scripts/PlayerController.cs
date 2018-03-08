@@ -7,7 +7,6 @@ public class PlayerController : MonoBehaviour {
 
     public Player player;
     public float reloadTime;
-    //private bool bullet = false;
     public GameObject projectile_prefab;
 
     public Button shootButton;

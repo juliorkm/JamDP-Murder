@@ -34,8 +34,7 @@ public class VictoryText : MonoBehaviour {
 
 	public IEnumerator FadeTextToFullAlpha(float time, TextMeshProUGUI text) {
 			text.color = new Color(text.color.r, text.color.g, text.color.b, 0);
-			while (text.color.a < 1.0f)
-			{
+			while (text.color.a < 1.0f) {
 				text.color = new Color(text.color.r, 
 					text.color.g, 
 					text.color.b, 

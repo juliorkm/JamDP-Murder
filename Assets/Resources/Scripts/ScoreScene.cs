@@ -18,8 +18,7 @@ public class ScoreScene : MonoBehaviour {
         playerUpScore = PlayerPrefs.GetInt("playerUp");
         bottomScore.text = playerDownScore + " x " + playerUpScore;
         upperScore.text = playerUpScore + " x " + playerDownScore;
-
-
+        
         StartCoroutine(ScoreAnimation());
 	}
 
@@ -35,8 +34,7 @@ public class ScoreScene : MonoBehaviour {
             yield return new WaitForEndOfFrame();
         }
         yield return new WaitForSeconds(.8f);
-        while (bottomRect.anchoredPosition.y > bottomEnd.y + 10)
-        {
+        while (bottomRect.anchoredPosition.y > bottomEnd.y + 10) {
             bottomRect.anchoredPosition =
                 Vector2.Lerp(bottomRect.anchoredPosition, bottomEnd, .4f);
             upperRect.anchoredPosition =
@@ -52,15 +50,10 @@ public class ScoreScene : MonoBehaviour {
         } else {
             SceneManager.LoadScene("Gameplay");
         }
-
     }
 
     void loadVictoryScene(string winner) {
-
         PlayerPrefs.SetString("Winner", winner);
         SceneManager.LoadScene("Victory");
-
     }
-
-
 }

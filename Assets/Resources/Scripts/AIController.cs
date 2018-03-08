@@ -135,17 +135,6 @@ public class AIController : MonoBehaviour {
                     }
 
                 }
-
-                /*
-                yield return MoveLeft();
-                yield return new WaitForSeconds(1f);
-                yield return MoveRight();
-                yield return new WaitForSeconds(1f);
-                yield return MoveLeft();
-                yield return new WaitForSeconds(1f);
-                yield return Shoot();
-                yield return new WaitForSeconds(1f);
-                yield return Reload();*/
             }
             yield return new WaitForSeconds(.1f);
         }
