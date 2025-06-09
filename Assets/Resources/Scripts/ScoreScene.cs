@@ -31,7 +31,7 @@ public class ScoreScene : MonoBehaviour {
             upperRect.anchoredPosition =
                 Vector2.Lerp(upperRect.anchoredPosition, upperStop, .15f);
 
-            yield return new WaitForEndOfFrame();
+            yield return new WaitForSeconds(.01f);
         }
         yield return new WaitForSeconds(.8f);
         while (bottomRect.anchoredPosition.y > bottomEnd.y + 10) {
@@ -40,7 +40,7 @@ public class ScoreScene : MonoBehaviour {
             upperRect.anchoredPosition =
                 Vector2.Lerp(upperRect.anchoredPosition, upperEnd, .4f);
 
-            yield return new WaitForEndOfFrame();
+            yield return new WaitForSeconds(.01f);
         }
 
         if (playerUpScore >= scoreLimit) {
