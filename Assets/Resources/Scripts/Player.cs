@@ -49,7 +49,7 @@ public class Player : MonoBehaviour {
         AudioManager.instance.Play(AudioManager.instance.sfx_move);
         while (Vector2.Distance(rectTransform.anchoredPosition, target) > 15) {
             rectTransform.anchoredPosition = Vector2.Lerp(rectTransform.anchoredPosition, target, .3f);
-            yield return new WaitForEndOfFrame();
+            yield return new WaitForSeconds(.01f);
         }
         rectTransform.anchoredPosition = target;
         yield return new WaitForSeconds(.05f); //cooldown

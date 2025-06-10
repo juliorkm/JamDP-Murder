@@ -32,7 +32,7 @@ public class AIController : MonoBehaviour {
                 if (shootButton.interactable) { // when has bullet
                     if (DistanceToEnemy() == 0) { // when is aligned with enemy
                         if (!enemyController.player.canAct) { // when enemy is stunned in front of it
-                            if (FindObjectOfType<Projectile>() == null) { // and there's no dagger flying, 100% chance to shoot
+                            if (FindFirstObjectByType<Projectile>() == null) { // and there's no dagger flying, 100% chance to shoot
                                 yield return Shoot();
                             } else { // and there is a dagger flying
                                 if (Random.Range(0f,1f) < .3f) { // 30% chance to shoot
@@ -54,7 +54,7 @@ public class AIController : MonoBehaviour {
                         }
                     } else if (Mathf.Abs(DistanceToEnemy()) < 2) { // when is 1 tile away from enemy
                         if (!enemyController.player.canAct) { // when enemy is stunned a tile away from it
-                            if (FindObjectOfType<Projectile>() == null) { // and there's no dagger flying
+                            if (FindFirstObjectByType<Projectile>() == null) { // and there's no dagger flying
                                 if (Random.Range(0f, 1f) < .8f) { // 80% chance to chase
                                     if (DistanceToEnemy() < 0) yield return MoveLeft();
                                     else yield return MoveRight();
@@ -88,7 +88,7 @@ public class AIController : MonoBehaviour {
                 } else { // when has no bullet
                     if (DistanceToEnemy() == 0) { // when is aligned with enemy
                         if (!enemyController.player.canAct) { // when enemy is stunned in front of it
-                            if (FindObjectOfType<Projectile>() == null) { // and there's no dagger flying
+                            if (FindFirstObjectByType<Projectile>() == null) { // and there's no dagger flying
                                 if (Random.Range(0f,1f) < .85f) { // 85% chance to reload
                                     yield return Reload();
                                 } else { // 15% chance to move randomly
@@ -110,7 +110,7 @@ public class AIController : MonoBehaviour {
                         }
                     } else if (Mathf.Abs(DistanceToEnemy()) < 2) { // when is 1 tile away from enemy
                         if (!enemyController.player.canAct) { // when enemy is stunned a tile away from it
-                            if (FindObjectOfType<Projectile>() == null) { // and there's no dagger flying
+                            if (FindFirstObjectByType<Projectile>() == null) { // and there's no dagger flying
                                 if (Random.Range(0f,1f) < .75f) { // 75% chance to reload
                                     yield return Reload();
                                 } else { // 25% chance to move randomly

@@ -26,17 +26,8 @@ public class ColorManager : MonoBehaviour {
 
     public static PlayerColor bottomPlayerColor, upperPlayerColor;
     public Button[] bottomPlayerButtons, upperPlayerButtons;
-
-    private RectTransform bottomCpuIcon;
-    private ButtonIconMovement bottomCpuIconMovement;
-    private RectTransform upperCpuIcon;
-    private ButtonIconMovement upperCpuIconMovement;
     
     void Start () {
-        bottomCpuIconMovement = bottomPlayerButtons[bottomPlayerButtons.Length-1].GetComponentInChildren<ButtonIconMovement>();
-        bottomCpuIcon = bottomCpuIconMovement.gameObject.GetComponent<RectTransform>();
-        upperCpuIconMovement = upperPlayerButtons[upperPlayerButtons.Length-1].GetComponentInChildren<ButtonIconMovement>();
-        upperCpuIcon = upperCpuIconMovement.gameObject.GetComponent<RectTransform>();
         
         if (!colorHasBeenAssigned) {
             colorHasBeenAssigned = true;
@@ -48,11 +39,6 @@ public class ColorManager : MonoBehaviour {
             SetUpperPlayerColor((int) upperPlayerColor);
         }
 
-        if (upperPlayerColor == PlayerColor.CPU) upperCpuIcon.localPosition = Vector2.zero;
-        else upperCpuIcon.localPosition = upperCpuIconMovement.nonPressedPosition;
-
-        if (bottomPlayerColor == PlayerColor.CPU) bottomCpuIcon.localPosition = Vector2.zero;
-        else bottomCpuIcon.localPosition = bottomCpuIconMovement.nonPressedPosition;
     }
 
     public void SetBottomPlayerColor(int i) {
@@ -62,10 +48,6 @@ public class ColorManager : MonoBehaviour {
         bottomPlayerButtons[i].interactable = false;
         bottomPlayerColor = (PlayerColor)i;
 
-        if (i == (int) PlayerColor.CPU)
-            bottomCpuIcon.localPosition = Vector2.zero;
-        else
-            bottomCpuIcon.localPosition = bottomCpuIconMovement.nonPressedPosition;
     }
 
     public void SetUpperPlayerColor(int i) {
@@ -75,9 +57,5 @@ public class ColorManager : MonoBehaviour {
         upperPlayerButtons[i].interactable = false;
         upperPlayerColor = (PlayerColor)i;
 
-        if (i == (int)PlayerColor.CPU)
-            upperCpuIcon.localPosition = Vector2.zero;
-        else
-            upperCpuIcon.localPosition = upperCpuIconMovement.nonPressedPosition;
     }
 }
