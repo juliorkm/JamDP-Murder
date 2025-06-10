@@ -41,7 +41,7 @@ public class PlayerController : MonoBehaviour {
             } else {
                 go = Instantiate(projectile_prefab, player.transform.position, Quaternion.Euler(0,0,180));
             }
-            go.transform.SetParent(transform.parent, false);
+            go.transform.SetParent(transform.parent.parent, false);
             go.GetComponent<Projectile>().SerializeProjectile(dir, player.rectTransform.anchoredPosition);
             AudioManager.instance.Play(AudioManager.instance.sfx_shot);
             StartCoroutine(Cooldown(.4f));
